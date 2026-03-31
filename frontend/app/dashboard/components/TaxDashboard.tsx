@@ -181,7 +181,7 @@ function LeakCard({ leak, onAction }: { leak: LeakDetection; onAction: (id: stri
     <div
       
       
-      animate={{ opacity: 1, x: 0 }}
+      
       className={`border rounded-xl overflow-hidden ${nivelColors[leak.nivel]}`}
     >
       <div
@@ -218,9 +218,9 @@ function LeakCard({ leak, onAction }: { leak: LeakDetection; onAction: (id: stri
       
         {isExpanded && (
           <div
-            initial={{ height: 0 }}
-            animate={{ height: 'auto' }}
-            exit={{ height: 0 }}
+            
+            
+            
             className="border-t border-current border-opacity-20"
           >
             <div className="p-4 space-y-3">

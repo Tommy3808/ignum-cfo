@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState, useEffect, useRef } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+// Animation components removed - using CSS transitions
 
 interface LogEntry {
   timestamp: number
@@ -102,9 +102,9 @@ export function TerminalIgnition({ onComplete, rfc }: TerminalIgnitionProps) {
     <div className="min-h-screen bg-black flex items-center justify-center p-4">
       <div className="w-full max-w-4xl">
         {/* Header */}
-        <motion.div 
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
+        <div 
+          
+          
           className="mb-6"
         >
           <div className="flex items-center gap-3 mb-2">
@@ -117,12 +117,12 @@ export function TerminalIgnition({ onComplete, rfc }: TerminalIgnitionProps) {
           {rfc && (
             <p className="text-gray-500 font-mono mt-2">RFC: {rfc}</p>
           )}
-        </motion.div>
+        </div>
 
         {/* Terminal Window */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
+        <div
+          
+          
           className="bg-gray-900 rounded-lg border border-gray-800 overflow-hidden shadow-2xl"
         >
           {/* Terminal Header */}
@@ -146,13 +146,13 @@ export function TerminalIgnition({ onComplete, rfc }: TerminalIgnitionProps) {
             </div>
 
             {/* Logs */}
-            <AnimatePresence>
+            
               {logs.map((log, index) => (
-                <motion.div
+                <div
                   key={index}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0 }}
+                  
+                  
+                  
                   className={`flex items-start gap-3 mb-2 ${getStatusColor(log.status)}`}
                 >
                   <span className="text-gray-600 shrink-0">{log.relativeTime}</span>
@@ -164,15 +164,15 @@ export function TerminalIgnition({ onComplete, rfc }: TerminalIgnitionProps) {
                   {log.status === 'completed' && (
                     <span className="text-green-500">✓</span>
                   )}
-                </motion.div>
+                </div>
               ))}
-            </AnimatePresence>
+            
 
             {/* Completion Message */}
             {isComplete && (
-              <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
+              <div
+                
+                
                 className="mt-6 p-4 border border-yellow-500/50 bg-yellow-500/10 rounded"
               >
                 <div className="flex items-center gap-2 text-yellow-400 font-bold text-lg mb-2">
@@ -190,7 +190,7 @@ export function TerminalIgnition({ onComplete, rfc }: TerminalIgnitionProps) {
                     VER DASHBOARD →
                   </button>
                 </div>
-              </motion.div>
+              </div>
             )}
 
             <div ref={logsEndRef} />
@@ -198,20 +198,20 @@ export function TerminalIgnition({ onComplete, rfc }: TerminalIgnitionProps) {
 
           {/* Progress Bar */}
           <div className="h-1 bg-gray-800">
-            <motion.div
+            <div
               className="h-full bg-gradient-to-r from-cyan-400 to-purple-400"
-              initial={{ width: '0%' }}
-              animate={{ width: `${(currentStep / IGNITION_STEPS.length) * 100}%` }}
-              transition={{ duration: 0.3 }}
+              
+              
+              
             />
           </div>
-        </motion.div>
+        </div>
 
         {/* Footer Info */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.5 }}
+        <div
+          
+          
+          
           className="mt-6 flex justify-between items-center text-gray-600 font-mono text-xs"
         >
           <div className="flex gap-4">
@@ -222,7 +222,7 @@ export function TerminalIgnition({ onComplete, rfc }: TerminalIgnitionProps) {
           <div>
             v2.0.0-sovereign | TPWR Holdings
           </div>
-        </motion.div>
+        </div>
       </div>
     </div>
   )

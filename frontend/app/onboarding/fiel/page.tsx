@@ -33,7 +33,7 @@ interface FIELUploadProps {
   onComplete?: () => void
 }
 
-export function FIELUpload({ tenantId, onComplete }: FIELUploadProps) {
+function FIELUpload({ tenantId, onComplete }: FIELUploadProps) {
   const [step, setStep] = useState<'upload' | 'password' | 'encrypting' | 'complete'>('upload')
   const [files, setFiles] = useState<{ cer?: File; key?: File }>({})
   const [password, setPassword] = useState('')
@@ -100,7 +100,8 @@ export function FIELUpload({ tenantId, onComplete }: FIELUploadProps) {
 
       // Encriptar password
       const passwordEncoder = new TextEncoder()
-      const passwordEncrypted = await encryptFile(passwordEncoder.encode(password), encryptionKey)
+      const passwordBuffer = passwordEncoder.encode(password).buffer
+      const passwordEncrypted = await encryptFile(passwordBuffer, encryptionKey)
 
       setStatus('Enviando a Bóveda Segura...')
       setProgress(90)
@@ -112,13 +113,13 @@ export function FIELUpload({ tenantId, onComplete }: FIELUploadProps) {
       formData.append('razon_social', 'Empresa Demo SA de CV')
       
       // Convertir a base64 para envío
-      formData.append('certificado_encrypted', btoa(String.fromCharCode(...new Uint8Array(cerEncrypted.encrypted))))
-      formData.append('llave_encrypted', btoa(String.fromCharCode(...new Uint8Array(keyEncrypted.encrypted))))
-      formData.append('password_encrypted', btoa(String.fromCharCode(...new Uint8Array(passwordEncrypted.encrypted))))
+      formData.append('certificado_encrypted', btoa(String.fromCharCode(...Array.from(new Uint8Array(cerEncrypted.encrypted)))));
+      formData.append('llave_encrypted', btoa(String.fromCharCode(...Array.from(new Uint8Array(keyEncrypted.encrypted)))));
+      formData.append('password_encrypted', btoa(String.fromCharCode(...Array.from(new Uint8Array(passwordEncrypted.encrypted)))));
       
-      formData.append('iv_cert', btoa(String.fromCharCode(...cerEncrypted.iv)))
-      formData.append('iv_key', btoa(String.fromCharCode(...keyEncrypted.iv)))
-      formData.append('iv_password', btoa(String.fromCharCode(...passwordEncrypted.iv)))
+      formData.append('iv_cert', btoa(String.fromCharCode(...Array.from(cerEncrypted.iv))));
+      formData.append('iv_key', btoa(String.fromCharCode(...Array.from(keyEncrypted.iv))));
+      formData.append('iv_password', btoa(String.fromCharCode(...Array.from(passwordEncrypted.iv))));
 
       const response = await fetch('/api/v2/fiel/upload', {
         method: 'POST',
@@ -152,8 +153,8 @@ export function FIELUpload({ tenantId, onComplete }: FIELUploadProps) {
       <div className="w-full max-w-2xl">
         {/* Header */}
         <div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
+          
+          
           className="text-center mb-8"
         >
           <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-cyan-500 to-purple-600 rounded-2xl mb-4">
@@ -225,8 +226,8 @@ export function FIELUpload({ tenantId, onComplete }: FIELUploadProps) {
               {/* Password */}
               {files.cer && files.key && (
                 <div
-                  initial={{ opacity: 0, height: 0 }}
-                  animate={{ opacity: 1, height: 'auto' }}
+                  
+                  
                   className="space-y-4"
                 >
                   <div className="relative">
@@ -314,13 +315,13 @@ export function FIELUpload({ tenantId, onComplete }: FIELUploadProps) {
               <div className="relative w-24 h-24 mx-auto mb-6">
                 <div
                   className="absolute inset-0 border-4 border-cyan-500/30 rounded-full"
-                  animate={{ rotate: 360 }}
-                  transition={{ duration: 2, repeat: Infinity, ease: 'linear' }}
+                  
+                  
                 />
                 <div
                   className="absolute inset-2 border-4 border-purple-500/30 rounded-full border-t-purple-500"
-                  animate={{ rotate: -360 }}
-                  transition={{ duration: 1.5, repeat: Infinity, ease: 'linear' }}
+                  
+                  
                 />
                 <Lock className="absolute inset-0 m-auto w-8 h-8 text-white" />
               </div>
@@ -331,9 +332,9 @@ export function FIELUpload({ tenantId, onComplete }: FIELUploadProps) {
               <div className="w-full max-w-xs mx-auto bg-gray-800 rounded-full h-2 overflow-hidden">
                 <div
                   className="h-full bg-gradient-to-r from-cyan-500 to-purple-500"
-                  initial={{ width: 0 }}
-                  animate={{ width: `${progress}%` }}
-                  transition={{ duration: 0.3 }}
+                  
+                  
+                  
                 />
               </div>
               <p className="text-sm text-gray-500 mt-2">{progress}%</p>
@@ -343,8 +344,8 @@ export function FIELUpload({ tenantId, onComplete }: FIELUploadProps) {
           {step === 'complete' && (
             <div
               key="complete"
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
+              
+              
               className="text-center py-12"
             >
               <div className="w-20 h-20 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-6">
@@ -360,4 +361,10 @@ export function FIELUpload({ tenantId, onComplete }: FIELUploadProps) {
       </div>
     </div>
   )
+}
+
+
+// Default export for Next.js page
+export default function FIELUploadPage() {
+  return <FIELUpload tenantId="default" />
 }

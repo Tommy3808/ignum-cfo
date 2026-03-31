@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { Calculator, Shield, Zap, Clock, CheckCircle, ChevronRight, Menu, X, Server, Cpu, Factory } from 'lucide-react'
+import { Calculator, Shield, Zap, Clock, CheckCircle, ChevronRight, Menu, X, Lock, Server, Cpu, MapPin } from 'lucide-react'
 
 const PRICING_TIERS = [
   {
@@ -78,215 +78,159 @@ const PRICING_TIERS = [
   },
 ]
 
+const FEATURES = [
+  {
+    icon: Shield,
+    title: 'Bóveda FIEL AES-256-GCM',
+    description: 'Tu e.firma nunca toca nuestros servidores. Encriptación de grado militar con WebAuthn/Passkeys.',
+    items: ['Encriptación end-to-end', 'WebAuthn / Passkeys', 'Sin passwords'],
+  },
+  {
+    icon: Calculator,
+    title: 'Cálculo Fiscal en Tiempo Real',
+    description: 'ISR, IVA, IETU calculados automáticamente con cada CFDI. Sin sorpresas al cierre.',
+    items: ['ISR automático', 'IVA en tiempo real', 'Retenciones'],
+  },
+  {
+    icon: Zap,
+    title: 'Detección de Fugas',
+    description: 'IA que identifica gastos sin deducir, deducciones perdidas y oportunidades de ahorro.',
+    items: ['Gastos sin deducir', 'Deducciones perdidas', 'Alertas proactivas'],
+  },
+  {
+    icon: Clock,
+    title: 'Conexión Directa SAT',
+    description: 'Descarga automática de facturas emitidas y recibidas. Sincronización en minutos, no días.',
+    items: ['Descarga automática', 'Cruce inteligente', 'Validación SAT'],
+  },
+]
+
+const STATUS_METRICS = [
+  { label: 'Uptime', value: '99.9%' },
+  { label: 'CFDIs Procesados', value: '2.4M+' },
+  { label: 'Tiempo Respuesta', value: '<50ms' },
+]
+
 export default function LandingPage() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   return (
-    <div className="bg-white">
+    <div className="min-h-screen bg-[#0a0a0a] text-white font-sans">
       {/* Navigation */}
-      <nav className="fixed inset-x-0 top-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-100">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex h-16 items-center justify-between">
-            <div className="flex items-center">
-              <Link href="/" className="flex items-center gap-2">
-                <div className="h-8 w-8 bg-[#1B5E20] rounded-lg flex items-center justify-center">
-                  <span className="text-white font-bold text-lg">I</span>
-                </div>
-                <span className="text-xl font-bold text-gray-900">Ignum CFO</span>
-              </Link>
-            </div>
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0a0a0a]/90 backdrop-blur-md border-b border-[#2a2a2a]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-16">
+            <Link href="/" className="flex items-center gap-2">
+              <div className="w-8 h-8 bg-[#D4A574] rounded-lg flex items-center justify-center font-bold text-[#0a0a0a]">I</div>
+              <div className="flex flex-col">
+                <span className="font-semibold text-sm">Ignum CFO</span>
+                <span className="text-[10px] text-gray-500">BY IGNUM PROTOCOL</span>
+              </div>
+            </Link>
             
-            {/* Desktop nav */}
             <div className="hidden md:flex items-center gap-8">
-              <Link href="#features" className="text-sm font-medium text-gray-600 hover:text-gray-900">
-                Funciones
-              </Link>
-              <Link href="#infrastructure" className="text-sm font-medium text-gray-600 hover:text-gray-900">
-                Infraestructura
-              </Link>
-              <Link href="#pricing" className="text-sm font-medium text-gray-600 hover:text-gray-900">
-                Precios
-              </Link>
+              <Link href="#features" className="text-sm text-gray-400 hover:text-white transition-colors">Funciones</Link>
+              <Link href="#technology" className="text-sm text-gray-400 hover:text-white transition-colors">Tecnología</Link>
+              <Link href="#pricing" className="text-sm text-gray-400 hover:text-white transition-colors">Precios</Link>
             </div>
 
-            <div className="hidden md:flex items-center gap-4">
-              <Link href="/login" className="text-sm font-medium text-gray-600 hover:text-gray-900">
-                Iniciar sesión
-              </Link>
-              <Link href="/register" className="bg-[#1B5E20] text-white px-4 py-2 rounded-lg font-medium hover:bg-[#2E7D32] transition-colors">
+            <div className="hidden md:flex items-center gap-3">
+              <Link href="/login" className="text-sm text-gray-400 hover:text-white transition-colors">Iniciar sesión</Link>
+              <Link href="/register" className="bg-[#D4A574] text-[#0a0a0a] px-4 py-2 rounded-lg text-sm font-medium hover:bg-[#B8935F] transition-colors">
                 Iniciar Demo
               </Link>
             </div>
 
-            {/* Mobile menu button */}
-            <button
-              className="md:hidden p-2"
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            >
+            <button className="md:hidden p-2" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
               {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
           </div>
         </div>
 
-        {/* Mobile menu */}
         {mobileMenuOpen && (
-          <div className="md:hidden border-t border-gray-100 bg-white">
-            <div className="px-4 py-4 space-y-3">
-              <Link href="#features" className="block text-base font-medium text-gray-600">
-                Funciones
-              </Link>
-              <Link href="#infrastructure" className="block text-base font-medium text-gray-600">
-                Infraestructura
-              </Link>
-              <Link href="#pricing" className="block text-base font-medium text-gray-600">
-                Precios
-              </Link>
-              <hr className="border-gray-100" />
-              <Link href="/login" className="block text-base font-medium text-gray-600">
-                Iniciar sesión
-              </Link>
-              <Link href="/register" className="block bg-[#1B5E20] text-white text-center px-4 py-2 rounded-lg font-medium">
-                Iniciar Demo
-              </Link>
-            </div>
+          <div className="md:hidden border-t border-[#2a2a2a] bg-[#0a0a0a] px-4 py-4 space-y-3">
+            <Link href="#features" className="block text-gray-400">Funciones</Link>
+            <Link href="#technology" className="block text-gray-400">Tecnología</Link>
+            <Link href="#pricing" className="block text-gray-400">Precios</Link>
+            <hr className="border-[#2a2a2a]" />
+            <Link href="/login" className="block text-gray-400">Iniciar sesión</Link>
+            <Link href="/register" className="block bg-[#D4A574] text-[#0a0a0a] text-center py-2 rounded-lg font-medium">Iniciar Demo</Link>
           </div>
         )}
       </nav>
 
-      {/* Hero Section - With Infrastructure Background */}
-      <section className="relative pt-32 pb-20 lg:pt-40 lg:pb-32 overflow-hidden">
-        {/* Background Image */}
-        <div className="absolute inset-0 z-0">
-          <Image
-            src="/images/infrastructure/h200-sxm5-141gb.jpg"
-            alt="IGNUM Infrastructure"
-            fill
-            className="object-cover opacity-10"
-            priority
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-white via-white/95 to-white"></div>
-        </div>
-
-        <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-4xl mx-auto">
-            {/* Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#1B5E20]/10 text-[#1B5E20] text-sm font-medium mb-8 border border-[#1B5E20]/20">
-              <Server className="h-4 w-4" />
-              <span>Powered by IGNUM Protocol</span>
-              <span className="flex h-2 w-2 rounded-full bg-[#4CAF50] animate-pulse"></span>
-            </div>
-
-            <h1 className="text-5xl font-bold tracking-tight text-gray-900 sm:text-7xl mb-6">
-              Tu CFO autónomo con{' '}
-              <span className="text-[#1B5E20]">inteligencia soberana</span>
-            </h1>
-            <p className="text-xl leading-8 text-gray-600 mb-6 max-w-2xl mx-auto">
-              Conexión directa al SAT mediante e.firma bajo bóveda criptográfica AES-256-GCM. 
-              Calcula ISR, IVA y detecta fugas fiscales en tiempo real.
-            </p>
-            <p className="text-sm text-gray-500 mb-10">
-              Desplegado desde nuestro campus de 15,000 m² en Cuadritos, Celaya con 7.3 MW de energía operacional.
-            </p>
-
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link href="/register" className="bg-[#1B5E20] text-white text-lg px-8 py-4 rounded-xl font-semibold hover:bg-[#2E7D32] transition-all flex items-center shadow-lg shadow-[#1B5E20]/20">
-                Probar gratis 72 horas
-                <ChevronRight className="ml-2 h-5 w-5" />
-              </Link>
-              <Link href="#pricing" className="text-lg px-8 py-4 rounded-xl font-medium text-gray-700 hover:bg-gray-100 transition-colors border border-gray-200">
-                Ver precios
-              </Link>
-            </div>
-            <p className="mt-4 text-sm text-gray-500">
-              Setup desde $2,500 · Sin tarjeta de crédito para demo
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Infrastructure Section */}
-      <section id="infrastructure" className="py-20 bg-gray-950 text-white relative overflow-hidden">
-        {/* Background */}
-        <div className="absolute inset-0 z-0">
-          <Image
-            src="/images/infrastructure/cuadritos-aerial.jpg"
-            alt="Cuadritos Campus"
-            fill
-            className="object-cover opacity-20"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-gray-950 via-gray-950/95 to-gray-950/80"></div>
-        </div>
-
-        <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+      {/* Hero Section */}
+      <section className="min-h-screen flex items-center pt-20 pb-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-4xl font-bold mb-6">
-                Infraestructura de <span className="text-[#B87333]">grado soberano</span>
-              </h2>
-              <p className="text-gray-400 text-lg mb-8">
-                Tu información fiscal nunca sale de jurisdicción mexicana. 
-                Procesada en nuestros propios clústeres H200 con energía cogenerada in-situ.
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#D4A574]/50 text-[#D4A574] text-xs font-medium mb-6 bg-[#D4A574]/10">
+                <span className="w-2 h-2 bg-[#D4A574] rounded-full animate-pulse"></span>
+                <span>Powered by IGNUM Protocol</span>
+              </div>
+
+              <h1 className="text-5xl lg:text-6xl font-bold leading-tight mb-6">
+                Tu CFO autónomo con{' '}
+                <span className="bg-gradient-to-r from-[#D4A574] to-[#E8C9A0] bg-clip-text text-transparent">
+                  inteligencia soberana
+                </span>
+              </h1>
+              
+              <p className="text-lg text-gray-400 mb-4 max-w-lg">
+                Conexión directa al SAT mediante e.firma bajo bóveda criptográfica AES-256-GCM. 
+                Calcula ISR, IVA y detecta fugas fiscales en tiempo real.
+              </p>
+              
+              <p className="text-sm text-gray-500 mb-8">
+                Desplegado desde nuestro campus de 15,000 m² en Cuadritos, Celaya con 7.3 MW de energía operacional.
               </p>
 
-              <div className="grid grid-cols-2 gap-6">
-                <div className="bg-gray-900/50 border border-gray-800 rounded-xl p-4">
-                  <Cpu className="h-8 w-8 text-[#B87333] mb-3" />
-                  <div className="text-2xl font-bold">4×</div>
-                  <div className="text-sm text-gray-400">NVIDIA H200 SXM5</div>
+              <div className="flex flex-col sm:flex-row gap-4 mb-8">
+                <Link href="/register" className="inline-flex items-center justify-center bg-[#D4A574] text-[#0a0a0a] px-8 py-4 rounded-xl font-semibold hover:bg-[#B8935F] transition-colors text-base">
+                  Probar gratis 72 horas
+                  <ChevronRight className="ml-2 h-5 w-5" />
+                </Link>
+                <Link href="#pricing" className="inline-flex items-center justify-center border border-[#2a2a2a] bg-[#141414] text-white px-8 py-4 rounded-xl font-medium hover:border-[#D4A574] transition-colors text-base">
+                  Ver precios
+                </Link>
+              </div>
+
+              <div className="flex items-center gap-6 mb-4 text-sm">
+                <div className="flex items-center gap-2 text-gray-400">
+                  <Lock className="h-4 w-4 text-green-500" />
+                  <span>e.firma protegida</span>
                 </div>
-                <div className="bg-gray-900/50 border border-gray-800 rounded-xl p-4">
-                  <Factory className="h-8 w-8 text-[#B87333] mb-3" />
-                  <div className="text-2xl font-bold">7.3 MW</div>
-                  <div className="text-sm text-gray-400">Energía operacional</div>
+                <div className="flex items-center gap-2 text-gray-400">
+                  <Shield className="h-4 w-4 text-green-500" />
+                  <span>SAT Compliant</span>
                 </div>
-                <div className="bg-gray-900/50 border border-gray-800 rounded-xl p-4">
-                  <Server className="h-8 w-8 text-[#B87333] mb-3" />
-                  <div className="text-2xl font-bold">15K m²</div>
-                  <div className="text-sm text-gray-400">Campus piloto</div>
-                </div>
-                <div className="bg-gray-900/50 border border-gray-800 rounded-xl p-4">
-                  <Shield className="h-8 w-8 text-[#B87333] mb-3" />
-                  <div className="text-2xl font-bold">AES-256</div>
-                  <div className="text-sm text-gray-400">Encriptación GCM</div>
+                <div className="flex items-center gap-2 text-gray-400">
+                  <Cpu className="h-4 w-4 text-green-500" />
+                  <span>IA Fiscal</span>
                 </div>
               </div>
+
+              <p className="text-xs text-gray-500">
+                No requiere tarjeta de crédito • Setup en 5 minutos
+              </p>
             </div>
 
-            <div className="grid grid-cols-2 gap-4">
-              <div className="space-y-4">
-                <div className="relative h-48 rounded-xl overflow-hidden">
-                  <Image
-                    src="/images/infrastructure/gas-pipeline.jpg"
-                    alt="Pipeline de gas"
-                    fill
-                    className="object-cover"
-                  />
+            {/* Terminal Mockup */}
+            <div className="relative">
+              <div className="bg-[#1a1a1a] border border-[#2a2a2a] rounded-xl overflow-hidden shadow-[0_0_40px_rgba(212,165,116,0.2)]">
+                <div className="flex items-center gap-2 px-4 py-3 bg-[#111] border-b border-[#2a2a2a]">
+                  <div className="w-3 h-3 rounded-full bg-red-500"></div>
+                  <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
+                  <div className="w-3 h-3 rounded-full bg-green-500"></div>
+                  <span className="ml-4 text-xs text-gray-500 font-mono">ignum-cfo — bash</span>
                 </div>
-                <div className="relative h-32 rounded-xl overflow-hidden">
-                  <Image
-                    src="/images/infrastructure/cooling-infrastructure.jpg"
-                    alt="Cooling"
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-              </div>
-              <div className="space-y-4 pt-8">
-                <div className="relative h-32 rounded-xl overflow-hidden">
-                  <Image
-                    src="/images/infrastructure/fiber-cabling.jpg"
-                    alt="Fiber"
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                <div className="relative h-48 rounded-xl overflow-hidden">
-                  <Image
-                    src="/images/infrastructure/server-corridor.jpg"
-                    alt="Servers"
-                    fill
-                    className="object-cover"
-                  />
+                <div className="p-6 font-mono text-sm min-h-[280px]">
+                  <div className="text-[#D4A574] mb-2">$ ignum-cli init --fiscal-engine</div>
+                  <div className="text-gray-400 mb-1">&gt; initializing_fiscal_engine...</div>
+                  <div className="text-gray-400 mb-1">&gt; loading_sat_connector...</div>
+                  <div className="text-gray-400 mb-1">&gt; encrypting_vault_aes256gcm...</div>
+                  <div className="text-green-400 mb-4">&gt; system_ready.</div>
+                  <div className="text-[#D4A574]">$ <span className="animate-pulse">_</span></div>
                 </div>
               </div>
             </div>
@@ -295,110 +239,172 @@ export default function LandingPage() {
       </section>
 
       {/* Features Section */}
-      <section id="features" className="py-24 bg-gray-50">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-20">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
-              Tecnología que la competencia no tiene
+      <section id="features" className="py-24 bg-[#0a0a0a]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <h2 className="text-3xl lg:text-4xl font-bold mb-4">
+              Tecnología de <span className="bg-gradient-to-r from-[#D4A574] to-[#E8C9A0] bg-clip-text text-transparent">grado empresarial</span>
             </h2>
-            <p className="text-lg text-gray-600">
-              Mientras otros usan APIs de terceros, nosotros procesamos tus CFDIs 
-              en hierro propio con latencia de milisegundos.
+            <p className="text-lg text-gray-400">
+              Construido sobre la misma infraestructura que procesa millones de transacciones en tiempo real.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <FeatureCard
-              icon={<Shield className="h-6 w-6 text-[#1B5E20]" />}
-              title="Bóveda FIEL"
-              description="Tu e.firma se encripta en tu navegador antes de enviarse. Se desencripta solo en RAM durante milisegundos."
-            />
-            <FeatureCard
-              icon={<Calculator className="h-6 w-6 text-[#1B5E20]" />}
-              title="Cálculo en milisegundos"
-              description="Cruce automático de IVA trasladado vs acreditable. Proyección de ISR diaria, no mensual."
-            />
-            <FeatureCard
-              icon={<Zap className="h-6 w-6 text-[#1B5E20]" />}
-              title="Motor Antifugas"
-              description="Detecta PPD sin REP, facturas PUE a deudores crónicos, y proveedores en listas negras del SAT."
-            />
-            <FeatureCard
-              icon={<Clock className="h-6 w-6 text-[#1B5E20]" />}
-              title="Ledger Inmutable"
-              description="Historial financiero con hash chain criptográfico. Imposible de alterar sin romper la cadena."
-            />
+          <div className="grid md:grid-cols-2 gap-6">
+            {FEATURES.map((feature, idx) => (
+              <div key={idx} className="bg-[#1a1a1a] border border-[#2a2a2a] rounded-xl p-6 hover:border-[#D4A574]/50 transition-colors group">
+                <div className="flex items-start gap-4 mb-4">
+                  <div className="w-12 h-12 bg-[#D4A574]/10 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-[#D4A574]/20 transition-colors">
+                    <feature.icon className="h-6 w-6 text-[#D4A574]" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
+                    <p className="text-gray-400 text-sm">{feature.description}</p>
+                  </div>
+                </div>
+                <ul className="space-y-2 ml-16">
+                  {feature.items.map((item, iidx) => (
+                    <li key={iidx} className="flex items-center gap-2 text-sm text-gray-400">
+                      <CheckCircle className="h-4 w-4 text-green-500 flex-shrink-0" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Technology/Seguridad Section */}
+      <section id="technology" className="py-24 bg-[#111]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-3xl lg:text-4xl font-bold mb-6">
+                Seguridad <span className="bg-gradient-to-r from-[#D4A574] to-[#E8C9A0] bg-clip-text text-transparent">de grado bancario</span>
+              </h2>
+              <p className="text-lg text-gray-400 mb-8">
+                Tu información fiscal protegida con los más altos estándares de seguridad. 
+                Encriptación AES-256-GCM y autenticación WebAuthn/Passkeys.
+              </p>
+              
+              <div className="grid grid-cols-2 gap-4">
+                {[
+                  { icon: Lock, label: 'AES-256-GCM', desc: 'Encriptación militar' },
+                  { icon: Shield, label: 'WebAuthn', desc: 'Sin passwords' },
+                  { icon: Zap, label: 'En tiempo real', desc: 'Procesamiento 24/7' },
+                  { icon: Cpu, label: 'IA Fiscal', desc: 'Entrenada para México' },
+                ].map((item, idx) => (
+                  <div key={idx} className="bg-[#1a1a1a] border border-[#2a2a2a] rounded-lg p-4">
+                    <item.icon className="h-6 w-6 text-[#D4A574] mb-2" />
+                    <div className="font-semibold">{item.label}</div>
+                    <div className="text-sm text-gray-500">{item.desc}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Status Card */}
+            <div className="bg-[#1a1a1a] border border-[#2a2a2a] rounded-xl p-6">
+              <div className="flex items-center justify-between mb-6">
+                <h3 className="text-lg font-semibold">Estado del Sistema</h3>
+                <div className="flex items-center gap-2 text-green-400 text-sm">
+                  <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
+                  Operacional
+                </div>
+              </div>
+
+              <div className="space-y-4 mb-6">
+                {[
+                  { label: 'API SAT', status: 'Conectado', icon: Server },
+                  { label: 'Bóveda FIEL', status: 'Activa', icon: Lock },
+                  { label: 'Motor de IA', status: 'Operativo', icon: Cpu },
+                ].map((item, idx) => (
+                  <div key={idx} className="flex items-center justify-between p-3 bg-[#111] rounded-lg">
+                    <div className="flex items-center gap-3">
+                      <item.icon className="h-5 w-5 text-[#D4A574]" />
+                      <span className="text-gray-300">{item.label}</span>
+                    </div>
+                    <span className="text-green-400 font-mono text-sm">{item.status}</span>
+                  </div>
+                ))}
+              </div>
+
+              <div className="grid grid-cols-3 gap-3 pt-6 border-t border-[#2a2a2a]">
+                {STATUS_METRICS.map((metric, idx) => (
+                  <div key={idx} className="text-center">
+                    <div className="text-2xl font-bold font-mono">{metric.value}</div>
+                    <div className="text-xs text-gray-500">{metric.label}</div>
+                  </div>
+                ))}
+              </div>
+
+              <div className="mt-6 pt-4 border-t border-[#2a2a2a] flex items-center gap-2 text-sm text-gray-500">
+                <MapPin className="h-4 w-4 text-[#D4A574]" />
+                <span>México · Infraestructura soberana</span>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Pricing Section */}
-      <section id="pricing" className="py-24 bg-white">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-20">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
-              Inversión en soberanía fiscal
+      <section id="pricing" className="py-24 bg-[#0a0a0a]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <h2 className="text-3xl lg:text-4xl font-bold mb-4">
+              Precios <span className="bg-gradient-to-r from-[#D4A574] to-[#E8C9A0] bg-clip-text text-transparent">transparentes</span>
             </h2>
-            <p className="text-lg text-gray-600">
-              El Setup es nuestro filtro de calidad. Trabajamos solo con empresas 
-              que entienden el valor de la precisión absoluta.
+            <p className="text-lg text-gray-400">
+              Sin costos ocultos. Sin cargos sorpresa. Cancela cuando quieras.
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {PRICING_TIERS.map((tier) => (
+            {PRICING_TIERS.map((tier, idx) => (
               <div
-                key={tier.name}
-                className={`rounded-2xl p-6 ${
+                key={idx}
+                className={`relative rounded-xl p-6 ${
                   tier.popular
-                    ? 'bg-[#1B5E20] text-white ring-4 ring-[#1B5E20] ring-offset-4'
-                    : 'bg-white border border-gray-200 hover:border-[#B87333] transition-colors'
+                    ? 'bg-[#1a1a1a] border-2 border-[#D4A574] scale-105 shadow-[0_0_30px_rgba(212,165,116,0.2)]'
+                    : 'bg-[#1a1a1a] border border-[#2a2a2a]'
                 }`}
               >
                 {tier.popular && (
-                  <div className="mb-4">
-                    <span className="inline-flex items-center rounded-full bg-white/20 px-3 py-1 text-xs font-medium">
+                  <div className="absolute -top-3 left-1/2 -translate-x-1/2">
+                    <span className="bg-[#D4A574] text-[#0a0a0a] px-3 py-1 rounded-full text-xs font-bold">
                       Más popular
                     </span>
                   </div>
                 )}
-                <h3 className={`text-lg font-semibold ${tier.popular ? 'text-white' : 'text-gray-900'}`}>
-                  {tier.name}
-                </h3>
-                <p className={`mt-2 text-sm ${tier.popular ? 'text-green-100' : 'text-gray-500'}`}>
-                  {tier.description}
-                </p>
-                <div className="mt-4">
-                  <span className={`text-4xl font-bold ${tier.popular ? 'text-white' : 'text-gray-900'}`}>
-                    {tier.price}
-                  </span>
-                  {tier.period && (
-                    <span className={`text-sm ${tier.popular ? 'text-green-100' : 'text-gray-500'}`}>
-                      {tier.period}
-                    </span>
-                  )}
+                
+                <h3 className="text-lg font-semibold text-center mb-1">{tier.name}</h3>
+                <p className="text-gray-500 text-sm text-center mb-6">{tier.description}</p>
+                
+                <div className="text-center mb-2">
+                  <span className="text-4xl font-bold">{tier.price}</span>
+                  {tier.period && <span className="text-gray-500">{tier.period}</span>}
                 </div>
                 {tier.setup !== '-' && (
-                  <p className={`text-sm mt-1 ${tier.popular ? 'text-green-100' : 'text-gray-500'}`}>
-                    Setup: <span className="font-semibold">{tier.setup}</span>
-                  </p>
+                  <p className="text-center text-sm text-gray-500 mb-6">Setup: {tier.setup}</p>
                 )}
-                <ul className="mt-6 space-y-3">
-                  {tier.features.map((feature) => (
-                    <li key={feature} className="flex items-start gap-3">
-                      <CheckCircle className={`h-5 w-5 flex-shrink-0 ${tier.popular ? 'text-green-200' : 'text-[#1B5E20]'}`} />
-                      <span className={`text-sm ${tier.popular ? 'text-green-50' : 'text-gray-600'}`}>
-                        {feature}
-                      </span>
+
+                <ul className="space-y-3 mb-6">
+                  {tier.features.map((feature, fidx) => (
+                    <li key={fidx} className="flex items-start gap-2 text-sm text-gray-400">
+                      <CheckCircle className="h-4 w-4 text-green-500 flex-shrink-0 mt-0.5" />
+                      {feature}
                     </li>
                   ))}
                 </ul>
+
                 <Link
                   href={tier.ctaLink}
-                  className={`mt-6 block w-full text-center rounded-lg px-4 py-3 text-sm font-semibold transition-colors ${
+                  className={`block w-full text-center py-3 rounded-lg font-semibold transition-colors ${
                     tier.popular
-                      ? 'bg-white text-[#1B5E20] hover:bg-gray-100'
-                      : 'bg-[#1B5E20] text-white hover:bg-[#2E7D32]'
+                      ? 'bg-[#D4A574] text-[#0a0a0a] hover:bg-[#B8935F]'
+                      : 'border border-[#2a2a2a] text-white hover:border-[#D4A574] hover:text-[#D4A574]'
                   }`}
                 >
                   {tier.cta}
@@ -410,99 +416,49 @@ export default function LandingPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 relative overflow-hidden">
-        {/* Background */}
-        <div className="absolute inset-0 z-0">
-          <Image
-            src="/images/infrastructure/noc-control-room.jpg"
-            alt="NOC"
-            fill
-            className="object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#1B5E20]/95 to-[#1B5E20]/80"></div>
-        </div>
-
-        <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto">
-            <h2 className="text-4xl font-bold text-white mb-6">
-              Deja de operar a ciegas
-            </h2>
-            <p className="text-xl text-green-100 mb-10">
-              El 99% de empresas mexicanas dirigen su negocio mirando el espejo retrovisor. 
-              Únete al 1% que tiene control absoluto.
-            </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link
-                href="/register"
-                className="bg-white text-[#1B5E20] text-lg px-8 py-4 rounded-xl font-bold hover:bg-gray-100 transition-colors shadow-xl"
-              >
-                Iniciar prueba gratuita
-                <ChevronRight className="inline ml-2 h-5 w-5" />
-              </Link>
-              <span className="text-green-100 text-sm">
-                Setup Empresario: $5,000 MXN
-              </span>
-            </div>
-          </div>
+      <section className="py-24 bg-[#111]">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl lg:text-5xl font-bold mb-6">
+            Deja de <span className="bg-gradient-to-r from-[#D4A574] to-[#E8C9A0] bg-clip-text text-transparent">romantizar la mediocridad</span>
+          </h2>
+          <p className="text-lg text-gray-400 mb-10 max-w-2xl mx-auto">
+            Tu contador tiene 40 clientes. Ignum CFO tiene solo uno: tú. 
+            24/7. Sin descanso. Sin excusas.
+          </p>
+          <Link
+            href="/register"
+            className="inline-flex items-center bg-[#D4A574] text-[#0a0a0a] text-lg px-8 py-4 rounded-xl font-bold hover:bg-[#B8935F] transition-colors"
+          >
+            Iniciar demo gratuita
+            <ChevronRight className="ml-2 h-5 w-5" />
+          </Link>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-950 py-16">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-4 gap-8 mb-12">
-            <div className="col-span-2">
-              <div className="flex items-center gap-2 mb-4">
-                <div className="h-8 w-8 bg-[#1B5E20] rounded-lg flex items-center justify-center">
-                  <span className="text-white font-bold text-lg">I</span>
-                </div>
-                <span className="text-xl font-bold text-white">Ignum CFO</span>
-              </div>
-              <p className="text-gray-400 text-sm max-w-md">
-                Sistema operativo fiscal soberano. Desplegado desde Cuadritos, Celaya 
-                con 7.3 MW de infraestructura energética propia.
-              </p>
+      <footer className="py-12 bg-[#0a0a0a] border-t border-[#2a2a2a]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+            <div className="flex items-center gap-3">
+              <div className="w-8 h-8 bg-[#D4A574] rounded-lg flex items-center justify-center font-bold text-[#0a0a0a]">I</div>
+              <span className="text-gray-500 text-sm">
+                © 2026 Ignum CFO. Un producto de IGNUM Protocol.
+              </span>
             </div>
-            <div>
-              <h4 className="text-white font-semibold mb-4">Producto</h4>
-              <ul className="space-y-2 text-sm text-gray-400">
-                <li><Link href="#features" className="hover:text-white">Funciones</Link></li>
-                <li><Link href="#pricing" className="hover:text-white">Precios</Link></li>
-                <li><Link href="#infrastructure" className="hover:text-white">Infraestructura</Link></li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="text-white font-semibold mb-4">Legal</h4>
-              <ul className="space-y-2 text-sm text-gray-400">
-                <li><Link href="#" className="hover:text-white">Privacidad</Link></li>
-                <li><Link href="#" className="hover:text-white">Términos</Link></li>
-                <li><Link href="#" className="hover:text-white">Seguridad</Link></li>
-              </ul>
-            </div>
-          </div>
-          <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
-            <p className="text-gray-500 text-sm">
-              © 2024 Ignum CFO · Un producto de IGNUM Protocol
-            </p>
-            <div className="flex items-center gap-2 text-sm text-gray-500">
-              <span className="flex h-2 w-2 rounded-full bg-green-500"></span>
-              Sistema operativo soberano activo
+            <div className="flex items-center gap-6">
+              <Link href="https://ignumprotocol.ai" target="_blank" className="text-gray-500 hover:text-[#D4A574] text-sm transition-colors">
+                IGNUM Protocol
+              </Link>
+              <Link href="/privacy" className="text-gray-500 hover:text-[#D4A574] text-sm transition-colors">
+                Privacidad
+              </Link>
+              <Link href="/terms" className="text-gray-500 hover:text-[#D4A574] text-sm transition-colors">
+                Términos
+              </Link>
             </div>
           </div>
         </div>
       </footer>
-    </div>
-  )
-}
-
-function FeatureCard({ icon, title, description }: { icon: React.ReactNode; title: string; description: string }) {
-  return (
-    <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 hover:shadow-lg transition-shadow">
-      <div className="h-14 w-14 rounded-xl bg-[#1B5E20]/10 flex items-center justify-center mb-5">
-        {icon}
-      </div>
-      <h3 className="text-xl font-semibold text-gray-900 mb-3">{title}</h3>
-      <p className="text-gray-600 leading-relaxed">{description}</p>
     </div>
   )
 }
