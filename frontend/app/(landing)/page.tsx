@@ -7,73 +7,56 @@ import { Calculator, Shield, Zap, Clock, CheckCircle, ChevronRight, Menu, X, Loc
 
 const PRICING_TIERS = [
   {
-    name: 'Demo',
-    price: 'Gratis',
-    setup: '-',
-    description: 'Prueba todas las funcionalidades',
+    name: 'Professional',
+    price: 'Bespoke',
+    setup: 'Evaluación',
+    description: 'Arquitectura base para operadores individuales y consultores.',
     features: [
-      'Acceso completo por 72 horas',
-      'Subida de CFDIs ilimitada',
-      'Cálculo de impuestos',
-      'Asistente IA fiscal',
-      '1 empresa',
+      'Ingesta de CFDIs automatizada',
+      'Conciliación criptográfica SAT',
+      'Monitoreo fiscal algorítmico',
+      '1 entidad legal (Física o Moral)',
+      'Auditoría continua de cumplimiento',
+      'Soporte técnico preferencial',
     ],
-    cta: 'Iniciar Demo',
-    ctaLink: '/register?tier=demo',
+    cta: 'Agendar Evaluación',
+    ctaLink: '/register?tier=professional',
     popular: false,
   },
   {
-    name: 'Godinez',
-    price: '$999',
-    setup: '$2,500',
-    period: '/mes',
-    description: 'Para freelancers y profesionistas',
+    name: 'Enterprise',
+    price: 'Bespoke',
+    setup: 'Evaluación',
+    period: '',
+    description: 'Infraestructura robusta para corporativos en expansión.',
     features: [
-      'Estrategia fiscal básica',
-      'Cruce de CFDIs automático',
-      'Tips de deducción de gastos',
-      '1 persona física o moral',
-      'Ingresos hasta $500K/mes',
-      'Soporte por email',
+      'Análisis avanzado de estrategia fiscal',
+      'Reconciliación de facturación masiva',
+      'Detección de anomalías en tiempo real',
+      'Múltiples entidades legales',
+      'Asignación de recursos dedicados',
+      'Línea de soporte ejecutivo',
     ],
-    cta: 'Suscribirse',
-    ctaLink: '/register?tier=godinez',
+    cta: 'Solicitar Despliegue',
+    ctaLink: '/register?tier=enterprise',
     popular: true,
   },
   {
-    name: 'Empresario',
-    price: '$5,300',
-    setup: '$5,000',
-    period: '/mes',
-    description: 'Para empresas en crecimiento',
-    features: [
-      'Todas las funciones completas',
-      'Optimización fiscal avanzada',
-      '1 persona moral + 1 física',
-      'Reportes mensuales y anuales',
-      'Alertas de cumplimiento SAT',
-      'Soporte prioritario',
-    ],
-    cta: 'Suscribirse',
-    ctaLink: '/register?tier=empresario',
-    popular: false,
-  },
-  {
     name: 'Sovereign',
-    price: '$11,000',
-    setup: '$15,000',
-    period: '/mes',
-    description: 'Ecosistema fiscal completo',
+    price: 'Private',
+    setup: 'Bespoke',
+    period: '',
+    description: 'Bóveda aislada para Grupos Empresariales y Family Offices.',
     features: [
-      'Todo el plan Empresario',
-      '5 morales + 10 físicos',
-      'Planificación patrimonial',
-      'Multi-jurisdicción',
-      'Análisis de riesgo fiscal',
-      'Asesor dedicado',
+      'Hardware dedicado en IGNUM Campus',
+      'Infraestructura Cold-Storage',
+      'Consolidación fiscal multi-entidad',
+      'Arquitectura de defensa patrimonial',
+      'Análisis de riesgo y estrés fiscal',
+      'Enlace directo con ingenieros de cuenta',
     ],
-    cta: 'Contactar',
-    ctaLink: '/register?tier=sovereign',
+    cta: 'Revisión de Arquitectura',
+    ctaLink: '/register?tier=sovereign_private',
     popular: false,
   },
 ]
@@ -170,48 +153,48 @@ export default function LandingPage() {
               </div>
 
               <h1 className="text-5xl lg:text-6xl font-bold leading-tight mb-6">
-                Tu CFO autónomo con{' '}
+                Infraestructura Financiera{' '}
                 <span className="bg-gradient-to-r from-[#D4A574] to-[#E8C9A0] bg-clip-text text-transparent">
-                  inteligencia soberana
+                  Soberana
                 </span>
               </h1>
               
               <p className="text-lg text-gray-400 mb-4 max-w-lg">
-                Conexión directa al SAT mediante e.firma bajo bóveda criptográfica AES-256-GCM. 
-                Calcula ISR, IVA y detecta fugas fiscales en tiempo real.
+                Conexión directa y automatizada al SAT bajo bóveda criptográfica AES-256-GCM. 
+                Optimización fiscal en tiempo real para capital que exige control absoluto.
               </p>
               
               <p className="text-sm text-gray-500 mb-8">
-                Desplegado desde nuestro campus de 15,000 m² en Cuadritos, Celaya con 7.3 MW de energía operacional.
+                Desplegado desde nuestro campus privado de grado institucional con 7.3 MW de redundancia.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 mb-8">
                 <Link href="/register" className="inline-flex items-center justify-center bg-[#D4A574] text-[#0a0a0a] px-8 py-4 rounded-xl font-semibold hover:bg-[#B8935F] transition-colors text-base">
-                  Probar gratis 72 horas
+                  Solicitar Auditoría Arquitectónica
                   <ChevronRight className="ml-2 h-5 w-5" />
                 </Link>
                 <Link href="#pricing" className="inline-flex items-center justify-center border border-[#2a2a2a] bg-[#141414] text-white px-8 py-4 rounded-xl font-medium hover:border-[#D4A574] transition-colors text-base">
-                  Ver precios
+                  Modelos de Despliegue
                 </Link>
               </div>
 
               <div className="flex items-center gap-6 mb-4 text-sm">
                 <div className="flex items-center gap-2 text-gray-400">
                   <Lock className="h-4 w-4 text-green-500" />
-                  <span>e.firma protegida</span>
+                  <span>Criptografía Militar</span>
                 </div>
                 <div className="flex items-center gap-2 text-gray-400">
                   <Shield className="h-4 w-4 text-green-500" />
-                  <span>SAT Compliant</span>
+                  <span>Cumplimiento SAT Directo</span>
                 </div>
                 <div className="flex items-center gap-2 text-gray-400">
                   <Cpu className="h-4 w-4 text-green-500" />
-                  <span>IA Fiscal</span>
+                  <span>Motor Cuentantitativo</span>
                 </div>
               </div>
 
               <p className="text-xs text-gray-500">
-                No requiere tarjeta de crédito • Setup en 5 minutos
+                Acceso sujeto a evaluación de infraestructura
               </p>
             </div>
 
