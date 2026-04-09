@@ -1,30 +1,28 @@
-# Ignum CFO - AI Tax Assistant for Mexican SMEs
+# Ignum CFO - Motor de Análisis Fiscal
 
-> **PODER REAL. EJECUCIÓN BRUTAL. VICTORIA FISCAL.**
+Ignum CFO es un motor de análisis e inteligencia fiscal para empresas en México. Automatiza la conciliación de CFDIs, proyecta impuestos (ISR, IVA) y provee infraestructura de monitoreo continuo.
 
-Ignum CFO es un asistente fiscal impulsado por IA para empresas mexicanas. Automatiza contabilidad, calcula impuestos (ISR, IVA, IEPS) y proporciona asesoría fiscal personalizada.
+## Funciones Core
 
-## Features
+### Motor de Análisis Fiscal
+- Resolución de consultas sobre LISR, LIVA, CFF
+- Categorización estructurada de egresos
+- Detección temprana de discrepancias fiscales
+- Proyecciones de cierre mensual
 
-### 🧠 Asistente IA Fiscal 24/7
-- Responde preguntas sobre LISR, LIVA, CFF
-- Categorización automática de gastos
-- Alertas de riesgo fiscal
-- Recomendaciones de optimización
-
-### 📊 Motor de Impuestos Mexicano
+### Motor de Impuestos Mexicano
 - Soporta RESICO, RIF, Personas Morales, Sueldos
 - CFDI 4.0 XML parsing y validación
 - Cálculo automático ISR, IVA, IEPS
 - Tracking de fechas límite SAT
 
-### 💼 Gestión Empresarial
+### Gestión Empresarial
 - Múltiples empresas por cuenta
 - Subida masiva de CFDIs
 - Cruce automático de ingresos/egresos
 - Reportes mensuales y anuales
 
-### 💳 Pagos (Stripe)
+### Pagos (Stripe)
 - Suscripciones recurrentes en MXN
 - Niveles: Demo, Professional, Empresario, Sovereign
 - Webhook handling
@@ -42,15 +40,14 @@ Ignum CFO es un asistente fiscal impulsado por IA para empresas mexicanas. Autom
 | Pagos | Stripe |
 | Deploy | Docker + Docker Compose |
 
-## Estructura de Precios
+## Estructura de Acceso
 
-| Tier | Mensual | Setup | Límite |
-|------|---------|-------|--------|
-| **Demo** | Gratis | - | 72 horas full access |
-| **Professional** | $999 MXN | $2,500 | 1 físico/moral (<$500K/mes) |
-| **Empresario** | $5,300 MXN | $5,000 | 1 moral + 1 físico |
-| **Sovereign** | $11,000 MXN | $15,000 | 5 morales + 10 físicos |
-| **Extra** | - | - | $999 + IVA por usuario adicional |
+| Nivel | Detalles | Límite |
+|------|---------|--------|
+| **Evaluación** | Sujeto a aprobación | 72 horas operativas |
+| **Esencial** | $999 MXN / mes | 1 físico/moral (<$500K/mes) |
+| **Empresarial** | $5,300 MXN / mes | 1 moral + 1 físico |
+| **Sovereign** | Contacto directo | 5 morales + 10 físicos |
 
 ## Quick Start
 
@@ -121,11 +118,11 @@ STRIPE_WEBHOOK_SECRET=whsec_your_secret
 
 | Código | Nombre | Status |
 |--------|--------|--------|
-| 626 | RESICO | ✅ Activo |
-| 605 | RIF | ✅ Activo |
-| 601 | Personas Morales General | ✅ Activo |
-| 603 | Personas Morales No Lucrativas | ✅ Activo |
-| 605 | Sueldos | ✅ Activo |
+| 626 | RESICO | Activo |
+| 605 | RIF | Activo |
+| 601 | Personas Morales General | Activo |
+| 603 | Personas Morales No Lucrativas | Activo |
+| 605 | Sueldos | Activo |
 
 ## Desarrollo
 
@@ -191,7 +188,3 @@ alembic upgrade head
 ## Licencia
 
 Propietario - Ignum CFO / TPWR Holdings
-
----
-
-*Built with brutal execution. Excelencia o no merece existir.*
