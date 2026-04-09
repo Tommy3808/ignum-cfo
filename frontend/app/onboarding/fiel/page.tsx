@@ -160,7 +160,7 @@ function FIELUpload({ tenantId, onComplete }: FIELUploadProps) {
           <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-cyan-500 to-purple-600 rounded-2xl mb-4">
             <Shield className="w-8 h-8 text-white" />
           </div>
-          <h1 className="text-3xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
+          <h1 className="text-3xl font-bold bg-gradient-to-r from-[#D4A574] to-[#E8C9A0] bg-clip-text text-transparent">
             Bóveda FIEL
           </h1>
           <p className="text-gray-400 mt-2">

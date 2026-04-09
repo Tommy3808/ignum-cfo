@@ -111,7 +111,7 @@ export function TerminalIgnition({ onComplete, rfc }: TerminalIgnitionProps) {
             <div className="w-3 h-3 rounded-full bg-red-500 animate-pulse" />
             <span className="text-red-500 font-mono text-sm tracking-wider">IGNITION PROTOCOL v2.0</span>
           </div>
-          <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+          <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-[#D4A574] to-[#E8C9A0] bg-clip-text text-transparent">
             SOVEREIGN TERMINAL
           </h1>
           {rfc && (
@@ -199,7 +199,7 @@ export function TerminalIgnition({ onComplete, rfc }: TerminalIgnitionProps) {
           {/* Progress Bar */}
           <div className="h-1 bg-gray-800">
             <div
-              className="h-full bg-gradient-to-r from-cyan-400 to-purple-400"
+              className="h-full bg-gradient-to-r from-[#D4A574] to-[#E8C9A0]"
               
               
               
