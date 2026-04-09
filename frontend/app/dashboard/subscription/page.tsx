@@ -7,7 +7,7 @@ import { formatCurrency } from '@/lib/utils'
 const TIERS = [
   {
     id: 'godinez',
-    name: 'Godinez',
+    name: 'Professional',
     price: 999,
     setup: 2500,
     description: 'Para freelancers y profesionistas',

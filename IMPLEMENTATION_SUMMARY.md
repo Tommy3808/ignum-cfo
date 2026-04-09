@@ -28,7 +28,7 @@
 **Files created:**
 - `backend/payments/stripe.py` - Integración completa
   - Checkout sessions con setup fee + subscription
-  - Tiers: Godinez ($999), Empresario ($5,300), Sovereign ($11,000)
+  - Tiers: Professional ($999), Empresario ($5,300), Sovereign ($11,000)
   - Setup fee: $5,000 para Empresario
   - Webhook handling completo
   - Manejo de eventos: checkout.completed, payment.succeeded, etc.

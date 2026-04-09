@@ -58,7 +58,7 @@ class StripeManager:
     
     TIERS = {
         'GODINEZ': {
-            'name': 'Godinez',
+            'name': 'Professional',
             'description': '1 físico/moral (<$500K/mes)',
             'setup_amount': 2500,
             'monthly_amount': 999,

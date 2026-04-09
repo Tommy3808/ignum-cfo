@@ -26,7 +26,7 @@ Ignum CFO es un asistente fiscal impulsado por IA para empresas mexicanas. Autom
 
 ### 💳 Pagos (Stripe)
 - Suscripciones recurrentes en MXN
-- Niveles: Demo, Godinez, Empresario, Sovereign
+- Niveles: Demo, Professional, Empresario, Sovereign
 - Webhook handling
 - Upgrade/downgrade
 
@@ -47,7 +47,7 @@ Ignum CFO es un asistente fiscal impulsado por IA para empresas mexicanas. Autom
 | Tier | Mensual | Setup | Límite |
 |------|---------|-------|--------|
 | **Demo** | Gratis | - | 72 horas full access |
-| **Godinez** | $999 MXN | $2,500 | 1 físico/moral (<$500K/mes) |
+| **Professional** | $999 MXN | $2,500 | 1 físico/moral (<$500K/mes) |
 | **Empresario** | $5,300 MXN | $5,000 | 1 moral + 1 físico |
 | **Sovereign** | $11,000 MXN | $15,000 | 5 morales + 10 físicos |
 | **Extra** | - | - | $999 + IVA por usuario adicional |

@@ -133,7 +133,7 @@ def create_company(
     company_count = db.query(Company).filter(Company.owner_id == current_user.id).count()
     
     if current_user.tier == UserTier.GODINEZ and company_count >= 1:
-        raise HTTPException(status_code=403, detail="Godinez tier allows only 1 company")
+        raise HTTPException(status_code=403, detail="Professional tier allows only 1 company")
     elif current_user.tier == UserTier.EMPRESARIO and company_count >= 2:
         raise HTTPException(status_code=403, detail="Empresario tier allows up to 2 companies")
     
