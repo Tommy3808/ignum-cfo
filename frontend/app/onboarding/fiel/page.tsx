@@ -157,7 +157,7 @@ function FIELUpload({ tenantId, onComplete }: FIELUploadProps) {
           
           className="text-center mb-8"
         >
-          <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-cyan-500 to-purple-600 rounded-2xl mb-4">
+          <div className="inline-flex items-center justify-center w-16 h-16 bg-zinc-800 rounded-2xl mb-4">
             <Shield className="w-8 h-8 text-white" />
           </div>
           <h1 className="text-3xl font-bold bg-gradient-to-r from-[#D4A574] to-[#E8C9A0] bg-clip-text text-transparent">
@@ -244,7 +244,7 @@ function FIELUpload({ tenantId, onComplete }: FIELUploadProps) {
                   <button
                     onClick={() => setStep('password')}
                     disabled={!password}
-                    className="w-full py-4 bg-gradient-to-r from-cyan-500 to-purple-600 hover:from-cyan-400 hover:to-purple-500 disabled:opacity-50 disabled:cursor-not-allowed text-white font-bold rounded-xl transition-all"
+                    className="w-full py-4 bg-white hover:bg-zinc-100 disabled:opacity-50 disabled:cursor-not-allowed text-zinc-900 font-bold rounded-xl transition-all"
                   >
                     Continuar
                   </button>
@@ -296,7 +296,7 @@ function FIELUpload({ tenantId, onComplete }: FIELUploadProps) {
                 </button>
                 <button
                   onClick={handleUpload}
-                  className="flex-1 py-3 bg-gradient-to-r from-cyan-500 to-purple-600 hover:from-cyan-400 hover:to-purple-500 text-white font-bold rounded-xl transition-all"
+                  className="flex-1 py-3 bg-white hover:bg-zinc-100 text-zinc-900 font-bold rounded-xl transition-all"
                 >
                   Encriptar y Subir
                 </button>
@@ -319,7 +319,7 @@ function FIELUpload({ tenantId, onComplete }: FIELUploadProps) {
                   
                 />
                 <div
-                  className="absolute inset-2 border-4 border-purple-500/30 rounded-full border-t-purple-500"
+                  className="absolute inset-2 border-4 border-zinc-600/30 rounded-full border-t-zinc-400"
                   
                   
                 />
@@ -331,7 +331,7 @@ function FIELUpload({ tenantId, onComplete }: FIELUploadProps) {
               
               <div className="w-full max-w-xs mx-auto bg-gray-800 rounded-full h-2 overflow-hidden">
                 <div
-                  className="h-full bg-gradient-to-r from-cyan-500 to-purple-500"
+                  className="h-full bg-white"
                   
                   
                   

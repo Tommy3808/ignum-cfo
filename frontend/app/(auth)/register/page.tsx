@@ -67,7 +67,7 @@ function RegisterForm() {
     <>
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
         <Link href="/" className="flex justify-center">
-          <div className="h-12 w-12 bg-indigo-600 rounded-lg flex items-center justify-center">
+          <div className="h-12 w-12 bg-zinc-900 rounded-lg flex items-center justify-center">
             <span className="text-white font-bold text-xl">I</span>
           </div>
         </Link>
@@ -220,7 +220,7 @@ function RegisterForm() {
 
           <p className="mt-6 text-center text-sm text-gray-600">
             ¿Ya tienes cuenta?{' '}
-            <Link href="/login" className="font-medium text-indigo-600 hover:text-indigo-500">
+            <Link href="/login" className="font-medium text-zinc-900 hover:text-zinc-700">
               Inicia sesión
             </Link>
           </p>
@@ -235,7 +235,7 @@ export default function RegisterPage() {
   return (
     <Suspense fallback={
       <div className="min-h-screen flex items-center justify-center">
-        <Loader2 className="h-8 w-8 animate-spin text-indigo-600" />
+        <Loader2 className="h-8 w-8 animate-spin text-zinc-900" />
       </div>
     }>
       <RegisterForm />

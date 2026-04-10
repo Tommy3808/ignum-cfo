@@ -89,7 +89,7 @@ export default function CompaniesPage() {
   if (loading) {
     return (
       <div className="flex items-center justify-center h-64">
-        <Loader2 className="h-8 w-8 animate-spin text-indigo-600" />
+        <Loader2 className="h-8 w-8 animate-spin text-zinc-900" />
       </div>
     )
   }
@@ -219,8 +219,8 @@ function CompanyCard({ company }: { company: any }) {
       <div className="p-6">
         <div className="flex items-start justify-between">
           <div className="flex items-center gap-3">
-            <div className="h-12 w-12 rounded-lg bg-indigo-100 flex items-center justify-center">
-              <Building2 className="h-6 w-6 text-indigo-600" />
+            <div className="h-12 w-12 rounded-lg bg-zinc-100 flex items-center justify-center">
+              <Building2 className="h-6 w-6 text-zinc-900" />
             </div>
             <div>
               <h3 className="font-semibold text-gray-900">{company.razon_social}</h3>
@@ -244,7 +244,7 @@ function CompanyCard({ company }: { company: any }) {
                 SAT Verificado
               </span>
             ) : (
-              <span className="flex items-center gap-1 text-xs text-amber-600">
+              <span className="flex items-center gap-1 text-xs text-zinc-500">
                 <AlertCircle className="h-3 w-3" />
                 Pendiente verificación
               </span>

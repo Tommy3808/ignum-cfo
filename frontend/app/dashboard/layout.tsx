@@ -40,7 +40,7 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
       <aside className="fixed inset-y-0 left-0 z-50 w-64 bg-white border-r border-gray-200">
         <div className="flex h-16 items-center px-6 border-b border-gray-200">
           <Link href="/dashboard" className="flex items-center gap-2">
-            <div className="h-8 w-8 bg-indigo-600 rounded-lg flex items-center justify-center">
+            <div className="h-8 w-8 bg-zinc-900 rounded-lg flex items-center justify-center">
               <span className="text-white font-bold text-lg">I</span>
             </div>
             <span className="text-xl font-bold text-gray-900">Ignum CFO</span>
@@ -124,7 +124,7 @@ function DemoAlert() {
   if (!isDemo) return null
 
   return (
-    <div className="flex items-center gap-2 px-3 py-1.5 bg-amber-50 text-amber-800 rounded-md text-sm">
+    <div className="flex items-center gap-2 px-3 py-1.5 bg-zinc-100 text-zinc-700 rounded-md text-sm">
       <AlertCircle className="h-4 w-4" />
       <span>Demo: {hoursLeft}h restantes</span>
     </div>
@@ -138,8 +138,8 @@ function UserMenu() {
         <p className="text-sm font-medium text-gray-900">Usuario</p>
         <p className="text-xs text-gray-500">Demo</p>
       </div>
-      <div className="h-8 w-8 rounded-full bg-indigo-100 flex items-center justify-center">
-        <span className="text-sm font-medium text-indigo-700">U</span>
+      <div className="h-8 w-8 rounded-full bg-zinc-100 flex items-center justify-center">
+        <span className="text-sm font-medium text-zinc-900">U</span>
       </div>
     </div>
   )

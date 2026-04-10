@@ -98,23 +98,23 @@ export default function AIAssistantPage() {
             >
               <div className={`h-10 w-10 rounded-full flex items-center justify-center flex-shrink-0 ${
                 message.role === 'user' 
-                  ? 'bg-indigo-100' 
-                  : 'bg-green-100'
+                  ? 'bg-zinc-100' 
+                  : 'bg-zinc-50'
               }`}>
                 {message.role === 'user' ? (
-                  <User className="h-5 w-5 text-indigo-600" />
+                  <User className="h-5 w-5 text-zinc-900" />
                 ) : (
                   <Bot className="h-5 w-5 text-green-600" />
                 )}
               </div>
               <div className={`max-w-[80%] rounded-lg p-4 ${
                 message.role === 'user'
-                  ? 'bg-indigo-600 text-white'
-                  : 'bg-gray-100 text-gray-900'
+                  ? 'bg-zinc-900 text-white'
+                  : 'bg-zinc-100 text-zinc-900'
               }`}>
                 <p className="whitespace-pre-wrap">{message.content}</p>
                 <p className={`text-xs mt-2 ${
-                  message.role === 'user' ? 'text-indigo-200' : 'text-gray-500'
+                  message.role === 'user' ? 'text-zinc-400' : 'text-zinc-500'
                 }`}>
                   {message.timestamp.toLocaleTimeString('es-MX', { 
                     hour: '2-digit', 

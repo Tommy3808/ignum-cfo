@@ -56,7 +56,7 @@ export default function LoginPage() {
     <>
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
         <Link href="/" className="flex justify-center">
-          <div className="h-12 w-12 bg-indigo-600 rounded-lg flex items-center justify-center">
+          <div className="h-12 w-12 bg-zinc-900 rounded-lg flex items-center justify-center">
             <span className="text-white font-bold text-xl">I</span>
           </div>
         </Link>
@@ -123,7 +123,7 @@ export default function LoginPage() {
                 <input
                   id="remember"
                   type="checkbox"
-                  className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+                  className="h-4 w-4 rounded border-gray-300 text-zinc-900 focus:ring-zinc-500"
                 />
                 <label htmlFor="remember" className="ml-2 block text-sm text-gray-900">
                   Recordarme
@@ -131,7 +131,7 @@ export default function LoginPage() {
               </div>
 
               <div className="text-sm">
-                <Link href="/forgot-password" className="font-medium text-indigo-600 hover:text-indigo-500">
+                <Link href="/forgot-password" className="font-medium text-zinc-900 hover:text-zinc-700">
                   ¿Olvidaste tu contraseña?
                 </Link>
               </div>
@@ -157,7 +157,7 @@ export default function LoginPage() {
 
           <p className="mt-6 text-center text-sm text-gray-600">
             ¿No tienes cuenta?{' '}
-            <Link href="/register" className="font-medium text-indigo-600 hover:text-indigo-500">
+            <Link href="/register" className="font-medium text-zinc-900 hover:text-zinc-700">
               Regístrate gratis
             </Link>
           </p>

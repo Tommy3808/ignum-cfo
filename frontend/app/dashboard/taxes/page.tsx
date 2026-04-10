@@ -125,7 +125,7 @@ export default function TaxesPage() {
                     </div>
                     <div className="flex justify-between text-xl border-t pt-2">
                       <span className="font-medium text-gray-900">Total a Pagar</span>
-                      <span className="font-bold text-indigo-600">$20,900.00</span>
+                      <span className="font-bold text-zinc-900">$20,900.00</span>
                     </div>
                   </div>
                 </div>
@@ -161,8 +161,8 @@ export default function TaxesPage() {
 function TaxCard({ title, amount, dueDate, type }: { title: string; amount: number; dueDate: string; type: string }) {
   const colors = {
     isr: 'bg-blue-50 border-blue-200',
-    iva: 'bg-amber-50 border-amber-200',
-    total: 'bg-indigo-50 border-indigo-200'
+    iva: 'bg-zinc-50 border-zinc-200',
+    total: 'bg-zinc-50 border-zinc-300'
   }
 
   const formatCurrency = (val: number) => {
@@ -181,8 +181,8 @@ function TaxCard({ title, amount, dueDate, type }: { title: string; amount: numb
         </div>
         <div className={`h-10 w-10 rounded-lg flex items-center justify-center ${
           type === 'isr' ? 'bg-blue-100 text-blue-600' :
-          type === 'iva' ? 'bg-amber-100 text-amber-600' :
-          'bg-indigo-100 text-indigo-600'
+          type === 'iva' ? 'bg-zinc-100 text-zinc-600' :
+          'bg-zinc-900 text-white'
         }`}>
           {type === 'total' ? <Calculator className="h-5 w-5" /> : <FileText className="h-5 w-5" />}
         </div>

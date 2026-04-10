@@ -300,7 +300,7 @@ export function TaxDashboard() {
         <div className="max-w-7xl mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-gradient-to-br from-cyan-500 to-purple-600 rounded-xl flex items-center justify-center">
+              <div className="w-10 h-10 bg-zinc-800 rounded-xl flex items-center justify-center">
                 <Shield className="w-6 h-6 text-white" />
               </div>
               <div>
@@ -314,7 +314,7 @@ export function TaxDashboard() {
                 <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
                 <span className="text-xs text-green-400 font-medium">Ledger Verificado</span>
               </div>
-              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-purple-500 to-pink-500" />
+              <div className="w-10 h-10 rounded-full bg-zinc-700" />
             </div>
           </div>
 

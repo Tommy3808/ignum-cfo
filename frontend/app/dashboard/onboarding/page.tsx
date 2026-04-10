@@ -22,7 +22,7 @@ export default function OnboardingPage() {
     <div className="min-h-screen bg-gray-50 flex flex-col justify-center py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-3xl mx-auto w-full">
         <div className="text-center mb-8">
-          <div className="h-16 w-16 bg-indigo-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
+          <div className="h-16 w-16 bg-zinc-900 rounded-2xl flex items-center justify-center mx-auto mb-4">
             <CheckCircle className="h-8 w-8 text-white" />
           </div>
           <h1 className="text-3xl font-bold text-gray-900">¡Bienvenido a Ignum CFO!</h1>
@@ -35,13 +35,13 @@ export default function OnboardingPage() {
             {STEPS.map((step, idx) => (
               <div key={step.id} className="flex items-center">
                 <div className={`flex items-center justify-center h-12 w-12 rounded-full ${
-                  idx <= currentStep ? 'bg-indigo-600 text-white' : 'bg-gray-200 text-gray-400'
+                  idx <= currentStep ? 'bg-zinc-900 text-white' : 'bg-zinc-100 text-zinc-400'
                 }`}>
                   <step.icon className="h-6 w-6" />
                 </div>
                 {idx < STEPS.length - 1 && (
                   <div className={`h-1 w-24 mx-2 ${
-                    idx < currentStep ? 'bg-indigo-600' : 'bg-gray-200'
+                    idx < currentStep ? 'bg-zinc-900' : 'bg-zinc-200'
                   }`} />
                 )}
               </div>
@@ -60,7 +60,7 @@ export default function OnboardingPage() {
         <div className="bg-white rounded-2xl shadow-lg p-8">
           {currentStep === 0 && (
             <div className="text-center">
-              <Building2 className="h-16 w-16 text-indigo-600 mx-auto mb-4" />
+              <Building2 className="h-16 w-16 text-zinc-900 mx-auto mb-4" />
               <h2 className="text-xl font-semibold text-gray-900 mb-2">Primero, registra tu empresa</h2>
               <p className="text-gray-600 mb-6">
                 Necesitamos tu información fiscal para calcular tus impuestos correctamente.
@@ -77,7 +77,7 @@ export default function OnboardingPage() {
 
           {currentStep === 1 && (
             <div className="text-center">
-              <Receipt className="h-16 w-16 text-indigo-600 mx-auto mb-4" />
+              <Receipt className="h-16 w-16 text-zinc-900 mx-auto mb-4" />
               <h2 className="text-xl font-semibold text-gray-900 mb-2">Sube tus facturas</h2>
               <p className="text-gray-600 mb-6">
                 Carga tus CFDIs del mes para que podamos calcular tus impuestos automáticamente.
@@ -94,7 +94,7 @@ export default function OnboardingPage() {
 
           {currentStep === 2 && (
             <div className="text-center">
-              <Calculator className="h-16 w-16 text-indigo-600 mx-auto mb-4" />
+              <Calculator className="h-16 w-16 text-zinc-900 mx-auto mb-4" />
               <h2 className="text-xl font-semibold text-gray-900 mb-2">Revisa tus impuestos</h2>
               <p className="text-gray-600 mb-6">
                 Tu panel de impuestos está listo. Revisa el cálculo y las fechas límite.

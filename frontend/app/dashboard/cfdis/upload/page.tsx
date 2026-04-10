@@ -80,14 +80,14 @@ export default function CFDIUploadPage() {
       <div 
         {...getRootProps()}
         className={`card border-2 border-dashed cursor-pointer transition-colors ${
-          isDragActive ? 'border-indigo-500 bg-indigo-50' : 'border-gray-300'
+          isDragActive ? 'border-zinc-900 bg-zinc-50' : 'border-gray-300'
         }`}
       >
         <div className="card-body text-center py-12">
           <input {...getInputProps()} />
           <Upload className="h-12 w-12 text-gray-400 mx-auto mb-4" />
           {isDragActive ? (
-            <p className="text-lg font-medium text-indigo-600">Suelta los archivos aquí...</p>
+            <p className="text-lg font-medium text-zinc-900">Suelta los archivos aquí...</p>
           ) : (
             <>
               <p className="text-lg font-medium text-gray-900">
@@ -103,7 +103,7 @@ export default function CFDIUploadPage() {
 
       {uploading && (
         <div className="flex items-center justify-center py-8">
-          <Loader2 className="h-8 w-8 animate-spin text-indigo-600 mr-3" />
+          <Loader2 className="h-8 w-8 animate-spin text-zinc-900 mr-3" />
           <span className="text-gray-600">Procesando CFDIs...</span>
         </div>
       )}

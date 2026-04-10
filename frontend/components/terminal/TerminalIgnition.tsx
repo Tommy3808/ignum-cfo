@@ -91,7 +91,7 @@ export function TerminalIgnition({ onComplete, rfc }: TerminalIgnitionProps) {
   const getStatusColor = (status: LogEntry['status']) => {
     switch (status) {
       case 'pending': return 'text-gray-500'
-      case 'active': return 'text-cyan-400 animate-pulse'
+      case 'active': return 'text-zinc-300 animate-pulse'
       case 'completed': return 'text-green-400'
       case 'error': return 'text-red-400'
       default: return 'text-gray-400'
@@ -142,7 +142,7 @@ export function TerminalIgnition({ onComplete, rfc }: TerminalIgnitionProps) {
               <div>Initializing secure enclave...</div>
               <div>Loading HSM module... OK</div>
               <div>Establishing zero-trust connection... OK</div>
-              <div className="text-cyan-400 mt-2">{'='.repeat(60)}</div>
+              <div className="text-zinc-400 mt-2">{'='.repeat(60)}</div>
             </div>
 
             {/* Logs */}
