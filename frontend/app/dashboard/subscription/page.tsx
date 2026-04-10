@@ -6,7 +6,7 @@ import { formatCurrency } from '@/lib/utils'
 
 const TIERS = [
   {
-    id: 'godinez',
+    id: 'professional',
     name: 'Professional',
     price: 999,
     setup: 2500,
@@ -88,16 +88,16 @@ export default function SubscriptionPage() {
   return (
     <div className="space-y-8">
       <div>
-        <h1 className="text-2xl font-bold text-gray-900">Suscripción</h1>
-        <p className="text-gray-600">Elige el plan que mejor se ajuste a tu negocio</p>
+        <h1 className="text-2xl font-bold text-white">Suscripción</h1>
+        <p className="text-zinc-400">Elige el plan que mejor se ajuste a tu negocio</p>
       </div>
 
       {/* Current plan banner */}
-      <div className="bg-amber-50 border border-amber-200 rounded-lg p-4 flex items-center gap-3">
-        <AlertCircle className="h-5 w-5 text-amber-600" />
+      <div className="bg-zinc-900 border border-zinc-700 rounded-lg p-4 flex items-center gap-3">
+        <AlertCircle className="h-5 w-5 text-white" />
         <div>
-          <p className="font-medium text-amber-900">Estás en período de prueba</p>
-          <p className="text-sm text-amber-700">Te quedan 48 horas de acceso completo. Suscríbete para continuar.</p>
+          <p className="font-semibold text-white">Estás en período de prueba</p>
+          <p className="text-sm text-zinc-400">Te quedan 48 horas de acceso completo. Suscríbete para continuar.</p>
         </div>
       </div>
 
@@ -106,44 +106,44 @@ export default function SubscriptionPage() {
         {TIERS.map((tier) => (
           <div
             key={tier.id}
-            className={`rounded-2xl p-6 ${
+            className={`rounded-2xl p-6 border transition-all ${
               tier.recommended
-                ? 'bg-indigo-600 text-white ring-4 ring-indigo-600 ring-offset-2'
-                : 'bg-white border border-gray-200'
+                ? 'bg-zinc-900 border-white text-white'
+                : 'bg-black border-zinc-800 text-white'
             }`}
           >
             {tier.recommended && (
               <div className="mb-4">
-                <span className="inline-flex items-center rounded-full bg-indigo-500 px-2.5 py-0.5 text-xs font-medium">
+                <span className="inline-flex items-center rounded-full bg-white text-black px-2.5 py-0.5 text-xs font-semibold tracking-wide uppercase">
                   Recomendado
                 </span>
               </div>
             )}
             
-            <h3 className={`text-lg font-semibold ${tier.recommended ? 'text-white' : 'text-gray-900'}`}>
+            <h3 className="text-lg font-bold text-white tracking-tight">
               {tier.name}
             </h3>
-            <p className={`mt-2 text-sm ${tier.recommended ? 'text-indigo-100' : 'text-gray-500'}`}>
+            <p className="mt-2 text-sm text-zinc-400">
               {tier.description}
             </p>
             
             <div className="mt-4">
-              <span className={`text-4xl font-bold ${tier.recommended ? 'text-white' : 'text-gray-900'}`}>
+              <span className="text-4xl font-black text-white">
                 {formatCurrency(tier.price)}
               </span>
-              <span className={`text-sm ${tier.recommended ? 'text-indigo-100' : 'text-gray-500'}`}>
+              <span className="text-sm text-zinc-500">
                 /mes
               </span>
             </div>
-            <p className={`text-sm mt-1 ${tier.recommended ? 'text-indigo-100' : 'text-gray-500'}`}>
+            <p className="text-sm mt-1 text-zinc-600">
               Setup: {formatCurrency(tier.setup)}
             </p>
 
             <ul className="mt-6 space-y-3">
               {tier.features.map((feature) => (
                 <li key={feature} className="flex items-start gap-3">
-                  <Check className={`h-5 w-5 flex-shrink-0 ${tier.recommended ? 'text-indigo-200' : 'text-indigo-600'}`} />
-                  <span className={`text-sm ${tier.recommended ? 'text-indigo-100' : 'text-gray-600'}`}>
+                  <Check className="h-5 w-5 flex-shrink-0 text-white" />
+                  <span className="text-sm text-zinc-300">
                     {feature}
                   </span>
                 </li>
@@ -153,10 +153,10 @@ export default function SubscriptionPage() {
             <button
               onClick={() => handleSubscribe(tier.id)}
               disabled={loading}
-              className={`mt-6 w-full py-2.5 rounded-md text-sm font-medium transition-colors ${
+              className={`mt-6 w-full py-2.5 rounded-md text-sm font-bold tracking-wide transition-colors ${
                 tier.recommended
-                  ? 'bg-white text-indigo-600 hover:bg-indigo-50'
-                  : 'bg-indigo-600 text-white hover:bg-indigo-700'
+                  ? 'bg-white text-black hover:bg-zinc-200'
+                  : 'border border-zinc-700 text-white hover:border-white'
               } disabled:opacity-50`}
             >
               {loading ? (
@@ -172,7 +172,7 @@ export default function SubscriptionPage() {
       {/* FAQ */}
       <div className="card">
         <div className="card-header">
-          <h3 className="text-lg font-semibold text-gray-900">Preguntas frecuentes</h3>
+          <h3 className="text-lg font-semibold text-white">Preguntas frecuentes</h3>
         </div>
         <div className="card-body space-y-4">
           <FAQItem
@@ -200,8 +200,8 @@ export default function SubscriptionPage() {
 function FAQItem({ question, answer }: { question: string; answer: string }) {
   return (
     <div>
-      <h4 className="font-medium text-gray-900">{question}</h4>
-      <p className="mt-1 text-sm text-gray-600">{answer}</p>
+      <h4 className="font-medium text-white">{question}</h4>
+      <p className="mt-1 text-sm text-zinc-400">{answer}</p>
     </div>
   )
 }
