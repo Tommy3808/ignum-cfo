@@ -106,7 +106,7 @@ const mockData: DashboardData = {
 }
 
 const nivelColors = {
-  BAJO: 'bg-blue-500/20 border-blue-500/50 text-blue-400',
+  BAJO: 'bg-zinc-700/40 border-zinc-500/50 text-zinc-300',
   MEDIO: 'bg-yellow-500/20 border-yellow-500/50 text-yellow-400',
   ALTO: 'bg-orange-500/20 border-orange-500/50 text-orange-400',
   CRITICO: 'bg-red-500/20 border-red-500/50 text-red-400 animate-pulse',
@@ -410,7 +410,7 @@ export function TaxDashboard() {
                   value={formatCurrency(data.isr.retenido)}
                   subtitle="Por terceros"
                   icon={Receipt}
-                  color="text-blue-400"
+                  color="text-[#D4A574]"
                 />
                 <MetricCard
                   title="ISR a Cargo"

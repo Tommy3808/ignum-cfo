@@ -252,9 +252,9 @@ function FIELUpload({ tenantId, onComplete }: FIELUploadProps) {
               )}
 
               {/* Security Notice */}
-              <div className="flex items-start gap-3 p-4 bg-blue-500/10 border border-blue-500/30 rounded-xl">
-                <AlertTriangle className="w-5 h-5 text-blue-400 shrink-0 mt-0.5" />
-                <p className="text-sm text-blue-200">
+              <div className="flex items-start gap-3 p-4 bg-zinc-800/60 border border-[#D4A574]/30 rounded-xl">
+                <AlertTriangle className="w-5 h-5 text-[#D4A574] shrink-0 mt-0.5" />
+                <p className="text-sm text-zinc-300">
                   <strong>Seguridad:</strong> Tus archivos se encriptan en tu navegador antes de enviarse. 
                   El servidor nunca recibe la FIEL en texto plano. Usamos AES-256-GCM con claves efímeras.
                 </p>

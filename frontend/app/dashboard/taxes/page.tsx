@@ -160,7 +160,7 @@ export default function TaxesPage() {
 
 function TaxCard({ title, amount, dueDate, type }: { title: string; amount: number; dueDate: string; type: string }) {
   const colors = {
-    isr: 'bg-blue-50 border-blue-200',
+    isr: 'bg-zinc-50 border-zinc-200',
     iva: 'bg-zinc-50 border-zinc-200',
     total: 'bg-zinc-50 border-zinc-300'
   }
@@ -180,7 +180,7 @@ function TaxCard({ title, amount, dueDate, type }: { title: string; amount: numb
           <p className="text-2xl font-bold text-gray-900 mt-1">{formatCurrency(amount)}</p>
         </div>
         <div className={`h-10 w-10 rounded-lg flex items-center justify-center ${
-          type === 'isr' ? 'bg-blue-100 text-blue-600' :
+          type === 'isr' ? 'bg-zinc-100 text-zinc-600' :
           type === 'iva' ? 'bg-zinc-100 text-zinc-600' :
           'bg-zinc-900 text-white'
         }`}>
