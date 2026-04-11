@@ -330,8 +330,8 @@ export function TaxDashboard() {
                 onClick={() => setActiveTab(tab.id as any)}
                 className={`flex items-center gap-2 pb-3 border-b-2 transition-colors ${
                   activeTab === tab.id
-                    ? 'border-cyan-400 text-cyan-400'
-                    : 'border-transparent text-gray-400 hover:text-gray-300'
+                    ? 'border-white text-white'
+                    : 'border-transparent text-zinc-500 hover:text-zinc-300'
                 }`}
               >
                 <tab.icon className="w-4 h-4" />
@@ -354,7 +354,7 @@ export function TaxDashboard() {
             {/* IVA Section */}
             <div>
               <h2 className="text-lg font-semibold mb-4 flex items-center gap-2">
-                <Receipt className="w-5 h-5 text-cyan-400" />
+                <Receipt className="w-5 h-5 text-zinc-300" />
                 IVA Proyectado
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
@@ -364,7 +364,7 @@ export function TaxDashboard() {
                   subtitle="Basado en facturación PUE vs PPD"
                   trend="up"
                   icon={TrendingUp}
-                  color="text-cyan-400"
+                  color="text-zinc-300"
                 />
                 <MetricCard
                   title="IVA Cobrado"
@@ -394,7 +394,7 @@ export function TaxDashboard() {
             {/* ISR Section */}
             <div>
               <h2 className="text-lg font-semibold mb-4 flex items-center gap-2">
-                <Building2 className="w-5 h-5 text-purple-400" />
+                <Building2 className="w-5 h-5 text-zinc-300" />
                 ISR Estimado (Persona Moral 30%)
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -403,7 +403,7 @@ export function TaxDashboard() {
                   value={formatCurrency(data.isr.estimado_30)}
                   subtitle="30% sobre utilidad estimada"
                   icon={Building2}
-                  color="text-purple-400"
+                  color="text-zinc-300"
                 />
                 <MetricCard
                   title="ISR Retenido"
@@ -451,7 +451,7 @@ export function TaxDashboard() {
                   subtitle="Entradas - Salidas"
                   trend="up"
                   icon={DollarSign}
-                  color="text-cyan-400"
+                  color="text-zinc-300"
                 />
               </div>
             </div>
@@ -490,7 +490,7 @@ export function TaxDashboard() {
 
         {activeTab === 'ledger' && (
           <div className="text-center py-20">
-            <Shield className="w-16 h-16 text-cyan-400 mx-auto mb-4" />
+            <Shield className="w-16 h-16 text-zinc-300 mx-auto mb-4" />
             <h2 className="text-2xl font-bold mb-2">Sovereign Ledger</h2>
             <p className="text-gray-400 max-w-md mx-auto">
               El ledger financiero append-only está verificado y sincronizado.

@@ -237,7 +237,7 @@ function FIELUpload({ tenantId, onComplete }: FIELUploadProps) {
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
                       placeholder="Contraseña de la FIEL"
-                      className="w-full bg-gray-900 border border-gray-700 rounded-xl py-4 pl-12 pr-4 text-white placeholder-gray-500 focus:outline-none focus:border-cyan-500 transition-colors"
+                      className="w-full bg-gray-900 border border-gray-700 rounded-xl py-4 pl-12 pr-4 text-white placeholder-gray-500 focus:outline-none focus:border-zinc-400 transition-colors"
                     />
                   </div>
 
@@ -283,7 +283,7 @@ function FIELUpload({ tenantId, onComplete }: FIELUploadProps) {
                 </div>
                 <div className="flex justify-between py-2 border-b border-gray-800">
                   <span className="text-gray-400">Contraseña</span>
-                  <span className="text-cyan-400">{'•'.repeat(password.length)}</span>
+                  <span className="text-zinc-300">{'•'.repeat(password.length)}</span>
                 </div>
               </div>
 
@@ -314,7 +314,7 @@ function FIELUpload({ tenantId, onComplete }: FIELUploadProps) {
             >
               <div className="relative w-24 h-24 mx-auto mb-6">
                 <div
-                  className="absolute inset-0 border-4 border-cyan-500/30 rounded-full"
+                  className="absolute inset-0 border-4 border-zinc-600/30 rounded-full"
                   
                   
                 />

@@ -22,13 +22,13 @@
     @apply inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2;
   }
   .btn-primary {
-    @apply btn bg-indigo-600 text-white hover:bg-indigo-700 focus:ring-indigo-500;
+    @apply btn bg-white text-black hover:bg-zinc-200 focus:ring-zinc-400;
   }
   .btn-secondary {
-    @apply btn bg-white text-gray-700 border-gray-300 hover:bg-gray-50 focus:ring-indigo-500;
+    @apply btn bg-transparent text-zinc-300 border-zinc-700 hover:border-zinc-500 focus:ring-zinc-600;
   }
   .input {
-    @apply block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm;
+    @apply block w-full rounded-md border-zinc-700 shadow-sm focus:border-zinc-400 focus:ring-zinc-400 sm:text-sm;
   }
   .card {
     @apply bg-white overflow-hidden shadow rounded-lg;
