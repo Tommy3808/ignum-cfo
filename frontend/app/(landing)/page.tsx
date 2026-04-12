@@ -180,15 +180,15 @@ export default function LandingPage() {
 
               <div className="flex items-center gap-6 mb-4 text-sm">
                 <div className="flex items-center gap-2 text-gray-400">
-                  <Lock className="h-4 w-4 text-green-500" />
+                  <Lock className="h-4 w-4 text-[#D4A574]" />
                   <span>Criptografía Militar</span>
                 </div>
                 <div className="flex items-center gap-2 text-gray-400">
-                  <Shield className="h-4 w-4 text-green-500" />
+                  <Shield className="h-4 w-4 text-[#D4A574]" />
                   <span>Cumplimiento SAT Directo</span>
                 </div>
                 <div className="flex items-center gap-2 text-gray-400">
-                  <Cpu className="h-4 w-4 text-green-500" />
+                  <Cpu className="h-4 w-4 text-[#D4A574]" />
                   <span>Motor Cuentantitativo</span>
                 </div>
               </div>
@@ -204,7 +204,7 @@ export default function LandingPage() {
                 <div className="flex items-center gap-2 px-4 py-3 bg-[#111] border-b border-[#2a2a2a]">
                   <div className="w-3 h-3 rounded-full bg-red-500"></div>
                   <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-                  <div className="w-3 h-3 rounded-full bg-green-500"></div>
+                  <div className="w-3 h-3 rounded-full bg-[#D4A574]"></div>
                   <span className="ml-4 text-xs text-gray-500 font-mono">ignum-cfo — bash</span>
                 </div>
                 <div className="p-6 font-mono text-sm min-h-[280px]">
@@ -212,7 +212,7 @@ export default function LandingPage() {
                   <div className="text-gray-400 mb-1">&gt; initializing_fiscal_engine...</div>
                   <div className="text-gray-400 mb-1">&gt; loading_sat_connector...</div>
                   <div className="text-gray-400 mb-1">&gt; encrypting_vault_aes256gcm...</div>
-                  <div className="text-green-400 mb-4">&gt; system_ready.</div>
+                  <div className="text-[#D4A574] mb-4">&gt; system_ready.</div>
                   <div className="text-[#D4A574]">$ <span className="animate-pulse">_</span></div>
                 </div>
               </div>
@@ -248,7 +248,7 @@ export default function LandingPage() {
                 <ul className="space-y-2 ml-16">
                   {feature.items.map((item, iidx) => (
                     <li key={iidx} className="flex items-center gap-2 text-sm text-gray-400">
-                      <CheckCircle className="h-4 w-4 text-green-500 flex-shrink-0" />
+                      <CheckCircle className="h-4 w-4 text-[#D4A574] flex-shrink-0" />
                       {item}
                     </li>
                   ))}
@@ -292,8 +292,8 @@ export default function LandingPage() {
             <div className="bg-[#1a1a1a] border border-[#2a2a2a] rounded-xl p-6">
               <div className="flex items-center justify-between mb-6">
                 <h3 className="text-lg font-semibold">Estado del Sistema</h3>
-                <div className="flex items-center gap-2 text-green-400 text-sm">
-                  <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
+                <div className="flex items-center gap-2 text-[#D4A574] text-sm">
+                  <span className="w-2 h-2 bg-[#D4A574] rounded-full animate-pulse"></span>
                   Operacional
                 </div>
               </div>
@@ -309,7 +309,7 @@ export default function LandingPage() {
                       <item.icon className="h-5 w-5 text-[#D4A574]" />
                       <span className="text-gray-300">{item.label}</span>
                     </div>
-                    <span className="text-green-400 font-mono text-sm">{item.status}</span>
+                    <span className="text-[#D4A574] font-mono text-sm">{item.status}</span>
                   </div>
                 ))}
               </div>
@@ -356,8 +356,8 @@ export default function LandingPage() {
               >
                 {tier.popular && (
                   <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                    <span className="bg-[#D4A574] text-[#0a0a0a] px-3 py-1 rounded-full text-xs font-bold">
-                      Más popular
+                    <span className="bg-[#D4A574] text-[#0a0a0a] px-3 py-1 text-xs font-bold tracking-widest uppercase" style={{clipPath: 'polygon(4px 0%, 100% 0%, calc(100% - 4px) 100%, 0% 100%)'}}>
+                      Recomendado
                     </span>
                   </div>
                 )}
@@ -376,7 +376,7 @@ export default function LandingPage() {
                 <ul className="space-y-3 mb-6">
                   {tier.features.map((feature, fidx) => (
                     <li key={fidx} className="flex items-start gap-2 text-sm text-gray-400">
-                      <CheckCircle className="h-4 w-4 text-green-500 flex-shrink-0 mt-0.5" />
+                      <CheckCircle className="h-4 w-4 text-[#D4A574] flex-shrink-0 mt-0.5" />
                       {feature}
                     </li>
                   ))}
